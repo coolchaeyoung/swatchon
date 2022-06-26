@@ -30,11 +30,11 @@ const toast = (function () {
 
   return {
     show({ text, type = "normal", duration = 3000 }) {
-      let timeoutId = null;
       const $toast = createToast({ text, type });
 
       addToast($toast, $toastContainer);
-      timeoutId = setTimeout(() => {
+
+      const timeoutId = setTimeout(() => {
         removeToast($toast, timeoutId);
       }, duration);
     },
